@@ -1,0 +1,32 @@
+Application
+      │
+      ▼
+ScannerFactory
+      │
+      ▼
+FileScanner (Interface)
+      │
+      ▼
+LocalFileScanner
+
+Later, Spring Boot will manage this factory.
+
+
+
+
+Application
+      │
+      ▼
+RenameEngine
+      │
+      ▼
+ScannerFactory
+      │
+      ▼
+LocalFileScanner
+      │
+      ▼
+ScanResult
+      │
+      ▼
+Console Output

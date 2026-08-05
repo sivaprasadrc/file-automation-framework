@@ -1,0 +1,117 @@
+Java SDE Roadmap – AI Powered File Automation Framework
+
+Goal
+
+Become a Java SDE by building one professional project while learning
+concepts as they are needed.
+
+Tech Stack
+
+-   Java 17
+-   Maven
+-   Git/GitHub
+-   JUnit 5
+-   Logback/SLF4J
+-   Java NIO
+-   Jackson
+-   Spring Boot
+-   Spring Data JPA
+-   Spring Security
+-   MySQL/PostgreSQL
+-   Docker
+-   Ollama/OpenAI APIs
+-   JavaFX (later)
+
+Phase 1 – Foundation
+
+Sprint 1: Project setup - Maven project - Git repository - Package
+structure - Coding standards
+
+Sprint 2: File Scanner - Java NIO (Path, Files) - Recursive scanning -
+File filtering - Exception handling
+
+Sprint 3: Rename Engine - Interfaces - Strategy Pattern - Sequential,
+Prefix, Suffix, Replace strategies - SOLID (Open/Closed Principle)
+
+Phase 2 – Professional Java
+
+Sprint 4 - Validation - Custom exceptions - Clean architecture
+
+Sprint 5 - Logging with SLF4J/Logback
+
+Sprint 6 - Configuration - properties files - Builder pattern where
+appropriate
+
+Phase 3 – AI Integration
+
+Sprint 7 - AI Rename - Java HttpClient - JSON - Jackson - Ollama/OpenAI
+
+Sprint 8 - AI Folder Organization - Prompt engineering - Response
+parsing
+
+Sprint 9 - Natural language commands - AI provider abstraction - Command
+pattern
+
+Phase 4 – Spring Boot
+
+Sprint 10 - REST Controllers - Services - Dependency Injection
+
+Sprint 11 - Validation - Global exception handling - Swagger/OpenAPI
+
+Sprint 12 - Expose File Automation Engine via REST API
+
+Phase 5 – Database
+
+-   Spring Data JPA
+-   Hibernate
+-   MySQL/PostgreSQL
+-   Rename history
+-   Undo
+-   Reports
+
+Phase 6 – Security
+
+-   Spring Security
+-   JWT
+-   Role-based authorization
+
+Phase 7 – Desktop UI
+
+-   JavaFX
+-   Progress bar
+-   Drag & Drop
+-   AI assistant
+
+Phase 8 – DevOps
+
+-   Docker
+-   GitHub Actions
+-   CI/CD
+-   Cloud deployment basics
+
+Advanced Features
+
+-   Duplicate detection
+-   OCR
+-   Semantic search
+-   Scheduler
+-   WatchService
+-   Multithreading
+
+Every Sprint
+
+1.  Requirement discussion
+2.  Architecture
+3.  Implementation
+4.  Code review
+5.  Refactoring
+6.  Unit testing
+7.  Git commit
+8.  Interview discussion
+
+Final Deliverable
+
+A production-style AI-powered File Automation Framework demonstrating: -
+Core Java - Clean Architecture - SOLID - Design Patterns - AI
+Integration - Spring Boot - Database - Security - Docker - Testing -
+Professional GitHub portfolio
