@@ -1,0 +1,57 @@
+                 PDF / scanned document
+                          │
+                          ▼
+                 ┌─────────────────┐
+                 │ Document Reader │
+                 └────────┬────────┘
+                          │
+             ┌────────────┴────────────┐
+             │                         │
+       Text available?            Scanned page?
+             │                         │
+          PDFBox                    OCR
+             │                    Tesseract
+             └────────────┬────────────┘
+                          ▼
+                   Extracted text
+                          │
+                          ▼
+                    Word Matcher
+                          │
+                          ▼
+                  Search Results
+                          │
+                          ▼
+              Excel / JSON / HTML
+
+
+              *************************
+
+              wordHunterPdf
+                    │
+                    ▼
+              Document
+                    │
+                    ├── PDF with text ──────► PDF text extraction
+                    │
+                    └── Scanned PDF ────────► OCR
+                                                    │
+                                                    ▼
+                                            extracted text
+                                                    │
+                                                    ▼
+                                            Search Engine
+                                                    │
+                                       ┌────────────┴────────────┐
+                                       ▼                         ▼
+                                  Match found              No match
+                                       │
+                                       ▼
+                                  SearchResult
+                                       │
+                            ┌──────────┼───────────┐
+                            ▼          ▼           ▼
+                         filename     page       location
+                                       │
+                                       ▼
+                                    Report
