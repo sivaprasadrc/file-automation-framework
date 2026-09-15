@@ -7,6 +7,8 @@ import com.siva.fileautomation.engine.ConversionEngine;
 import com.siva.fileautomation.wordHunterPdf.document.model.SearchRequest;
 import com.siva.fileautomation.wordHunterPdf.document.model.SearchResult;
 import com.siva.fileautomation.wordHunterPdf.document.search.DocumentSearchEngine;
+import com.siva.fileautomation.wordHunterPdf.document.search.PageClassifier;
+import com.siva.fileautomation.wordHunterPdf.document.search.PdfTextExtractor;
 import com.siva.fileautomation.wordHunterPdf.document.search.SearchMode;
 
 import java.io.IOException;
@@ -34,9 +36,9 @@ public class Application {
 //                Path.of("E:\\Nandhalala Asset")
 //        );
 
-        Path pdfFile = Path.of("src/main/resources/wordHunterPdfFiles/Test pdf.pdf");
+        Path pdfFile = Path.of("src/main/resources/wordHunterPdfFiles/Test.pdf");
         SearchRequest request = new SearchRequest(pdfFile,"Ram", SearchMode.CONTAINS);
-        DocumentSearchEngine engine = new DocumentSearchEngine();
+        DocumentSearchEngine engine = new DocumentSearchEngine(new PdfTextExtractor(), new PageClassifier());
         List<SearchResult> results = engine.search(request);
         for (SearchResult result : results) {
             System.out.println(result);

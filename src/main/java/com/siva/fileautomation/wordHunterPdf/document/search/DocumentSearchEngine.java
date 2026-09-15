@@ -11,17 +11,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DocumentSearchEngine {
+    private final PageTextExtractor textExtractor;
+    private final PageClassifier pageClassifier;
+
+    public DocumentSearchEngine(PageTextExtractor textExtractor, PageClassifier pageClassifier) {
+        this.textExtractor = textExtractor;
+        this.pageClassifier = pageClassifier;
+    }
+
+
     public List<SearchResult> search(SearchRequest request) throws IOException {
         List<SearchResult> results = new ArrayList<>();
-        try(PDDocument document = Loader.loadPDF(request.file().toFile())){
-            PDFTextStripper stripper = new PDFTextStripper();
-            for (int pageNumber = 1;pageNumber <= document.getNumberOfPages();pageNumber++){
-                stripper.setStartPage(pageNumber);
-                stripper.setEndPage(pageNumber);
-                String pageText = stripper.getText(document);
-                int occurrence = countOccurrences(pageText,request.searchWord(),request.searchMode());
-                for(int i = 1; i<=occurrence; i++){
-                    results.add(new SearchResult(request.file().getFileName().toString(),pageNumber,request.searchWord(),i));
+        try (PDDocument document = Loader.loadPDF(request.file().toFile())) {
+
+            for (int pageNumber = 1; pageNumber <= document.getNumberOfPages(); pageNumber++) {
+
+                String pageText = textExtractor.extractText(document, pageNumber);
+                PageType pageType = pageClassifier.classify(pageText);
+                System.out.println(
+                        "Page " + pageNumber + " → " + pageType
+                );
+                int occurrence = countOccurrences(pageText, request.searchWord(), request.searchMode());
+                for (int i = 1; i <= occurrence; i++) {
+                    results.add(new SearchResult(request.file().getFileName().toString(), pageNumber, request.searchWord(), i));
                 }
             }
         }
@@ -29,12 +41,12 @@ public class DocumentSearchEngine {
         return results;
     }
 
-    private int countOccurrences(String text, String searchWord,SearchMode searchMode) {
+    private int countOccurrences(String text, String searchWord, SearchMode searchMode) {
         int count = 0;
         int index = 0;
 
         while ((index = text.indexOf(searchWord, index)) != -1) {
-            switch (searchMode){
+            switch (searchMode) {
                 case CONTAINS:
                     count++;
                     break;
